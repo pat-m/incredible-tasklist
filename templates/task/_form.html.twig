@@ -1,0 +1,36 @@
+{{ form_start(form,{attr: {novalidate: 'novalidate'}}) }}
+    {% if not form.vars.valid %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {% for error in form.vars.errors.form.getErrors(true) %}
+                <div>
+                {% if error.cause.propertyPath is same as 'data.title' %}
+                    <strong>Le titre est en erreur !</strong>
+                    <span>{{ error.message }}</span>
+                {% elseif error.cause.propertyPath is same as 'data.description' %}
+                    <strong>La description est en erreur !</strong>
+                    <span>{{ error.message }}</span>
+                {% elseif error.cause.propertyPath is same as 'data.score' %}
+                    <strong> Le score est en erreur !</strong>
+                    <span>{{ error.message }}</span>
+                {% endif %}
+                </div>
+            {% endfor %}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+    <div>
+        {{ form_label(form.title) }}
+        {{ form_widget(form.title) }}
+    </div>
+    <div>
+        {{ form_label(form.description) }}
+        {{ form_widget(form.description) }}
+    </div>
+    <div>
+        {{ form_label(form.score) }}
+        {{ form_widget(form.score) }}
+    </div>
+    <div class="mt-2">
+        <button class="btn btn-primary mt-2 mb-2">{{ button_label|default('Save') }}</button>
+    </div>
+{{ form_end(form) }}

@@ -1,0 +1,6 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ include('task/_form.html.twig', {'button_label': 'Ajouter la tâche'}) }}
+    <a class="back" href="{{ path('task_index') }}">retour à la liste des tâches</a>
+{% endblock %}

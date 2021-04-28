@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Task index{% endblock %}
+
+{% block body %}
+    <table id="datatable" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Score</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.id }}</td>
+                <td>{{ task.title }}</td>
+                <td>{{ task.description }}</td>
+                <td>{{ task.score }}</td>
+                <td>
+                    <a href="{{ path('task_show', {'id': task.id}) }}"><i class="material-icons-outlined">visibility</i></a>
+                    <a href="{{ path('task_edit', {'id': task.id}) }}"><i class="material-icons-outlined">edit</i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a class="btn btn-primary" href="{{ path('task_new') }}">Ajouter une tâche</a>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('app-datatable') }}
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <table id="datatable" class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ task.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ task.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ task.description }}</td>
+            </tr>
+            <tr>
+                <th>Score</th>
+                <td>{{ task.score }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('task_index') }}">retour à la liste</a>
+    <br>
+    <a class="mt-2 mb-2 btn btn-success" href="{{ path('task_edit', {'id': task.id}) }}">éditer la tâche</a>
+    {{ include('task/_delete_form.html.twig') }}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('app-datatable') }}
+{% endblock %}

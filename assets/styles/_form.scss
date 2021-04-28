@@ -1,0 +1,9 @@
+input, textarea {
+  @extend .form-control
+}
+label {
+  @extend .form-label;
+}
+table {
+  background-color: $white;
+}

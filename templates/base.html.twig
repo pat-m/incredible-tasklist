@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            {% block title %}
+                {% if title is defined ? title : 'Sans Titre' %} {% endif %}
+            {% endblock %}
+        </title>
+
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app-style') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app-script') }}
+        {% endblock %}
+    </head>
+    <body>
+        <div class="container mt-5">
+            <h1 class="mb-5">Application de Gestion de tâches</h1>
+            <div class="row">
+                <div class="col-lg-12">
+                    {% block body %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
