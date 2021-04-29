@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('build') {
            agent any
-           steps {
+           withCredentials([usernameColonPassword(credentialsId: 'admin', variable: 'admin')]) {
                 sh 'whoami'
                 sh 'sudo su'
                 sh 'apt update'
