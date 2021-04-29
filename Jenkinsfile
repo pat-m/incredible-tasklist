@@ -1,10 +1,12 @@
 pipeline {
-    agent { docker { image 'php' } }
+    agent any
 
     stages {
         stage('Clone sources') {
            steps {
                 sh 'php --version'
+                sh 'composer install'
+                sh 'composer --version'
            }
         }
         stage('Prepare') {
