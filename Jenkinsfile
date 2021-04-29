@@ -12,10 +12,13 @@ pipeline {
                 sh 'sudo apt install libapache2-mod-php8.0 -y'
                 sh 'sudo apt install php8.0-mysql -y'
                 sh 'sudo apt install apache2 -y'
+                sh 'cd /etc/apache2'
+                sh 'apache2ctl configtest'
                 sh 'sudo ufw allow "Apache"'
                 sh 'sudo ufw status'
                 sh 'sudo systemctl status apache2'
                 sh 'sudo apt autoremove -y'
+
 //                 sh 'sudo apachectl -M'
 //                 sh 'sudo a2dismod php'
 //                 sh 'sudo a2dismod php7'
