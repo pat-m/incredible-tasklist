@@ -13,7 +13,7 @@ pipeline {
                 sh 'php --version'
                 sh '''php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"'''
                 sh '''HASH="$(wget -q -O - https://composer.github.io/installer.sig)" php -r "if (hash_file('SHA384', 'composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"'''
-                dh 'ls'
+                sh 'ls'
                 sh 'sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer'
                 sh 'cd'
                 sh 'composer -v'
