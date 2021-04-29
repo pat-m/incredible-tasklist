@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('build') {
            steps {
-                sh 'ansible -v'
+                sh 'apt update'
            }
         }
         stage('Prepare') {
