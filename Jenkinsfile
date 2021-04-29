@@ -17,7 +17,7 @@ pipeline {
                 sh 'php composer-setup.php'
                 sh '''php -r "unlink('composer-setup.php');"'''
                 sh 'cd'
-                sh 'composer -v'
+                sh 'php composer -v'
                 sh 'sudo apt install nodejs -y'
                 sh 'sudo apt install npm'
                 sh 'node -v'
