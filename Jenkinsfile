@@ -6,7 +6,7 @@ pipeline {
            agent any
            steps: {
                 sh: 'su - admin'
-           }
+           },
            steps {
                 withCredentials([usernameColonPassword(credentialsId: 'patrick.mengual', variable: '')]) {
                     sh 'whoami'
