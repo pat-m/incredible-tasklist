@@ -1,9 +1,8 @@
 pipeline {
-    agent none
+    agent any
 
     stages {
         stage('build') {
-           agent any
            steps {
                 sh 'sudo su -s /bin/bash jenkins'
            }
