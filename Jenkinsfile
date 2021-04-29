@@ -14,7 +14,7 @@ pipeline {
                 sh 'sudo apt install php8.0-mysql -y'
                 sh 'sudo apt install apache2 -y'
 
-                sh 'sudo systemctl status apache2 -y'
+                sh 'sudo systemctl status apache2'
            }
         }
         stage('Prepare') {
