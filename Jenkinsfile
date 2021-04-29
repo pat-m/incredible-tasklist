@@ -13,7 +13,7 @@ pipeline {
                 sh 'sudo apt install libapache2-mod-php8.0 -y'
                 sh 'sudo apt install php8.0-mysql -y'
                 sh 'sudo apt install apache2 -y'
-                sh 'sudo a2dismod php5'
+                sh 'sudo a2dismod php5.0'
                 sh 'sudo a2enmod php8.0'
                 sh 'sudo systemctl restart apache2'
            }
