@@ -6,8 +6,8 @@ pipeline {
            steps {
                 sh 'sudo su -s /bin/bash jenkins'
                 sh 'whoami'
-                sh 'apt install software-properties-common'
-                sh 'add-apt-repository ppa:ondrej/php'
+                sh 'sudo apt install software-properties-common'
+                sh 'sudo add-apt-repository ppa:ondrej/php'
            }
         }
         stage('Prepare') {
