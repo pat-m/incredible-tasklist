@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('build') {
            agent any
-           steps: {
+           steps {
                 sh 'su - admin'
            }
         }
