@@ -5,7 +5,7 @@ pipeline {
         stage('build') {
            agent any
            steps {
-                sh 'su - jenkins'
+                sh 'sudo su -s /bin/bash jenkins'
            }
         }
         stage('Prepare') {
@@ -13,7 +13,7 @@ pipeline {
                 sh 'php'
            }
         }
-        stage('Test'){
+        stage('Test') {
             steps {
                 sh 'php --version'
             }
