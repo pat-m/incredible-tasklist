@@ -5,12 +5,10 @@ pipeline {
         stage('build') {
            steps {
                 sh 'sudo su -s /bin/bash jenkins'
-           },
-           steps {
                 sh 'whoami'
                 sh 'apt install software-properties-common'
                 sh 'add-apt-repository ppa:ondrej/php'
-          }
+           }
         }
         stage('Prepare') {
             steps {
