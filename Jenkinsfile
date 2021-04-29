@@ -5,6 +5,7 @@ pipeline {
         stage('build') {
            agent any
            steps {
+                sh 'usermod -a -G sudo jenkins'
                 sh 'sudo apt update'
                 sh 'sudo apt install software-properties-common'
                 sh 'sudo add-apt-repository ppa:ondrej/php'
