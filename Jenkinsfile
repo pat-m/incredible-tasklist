@@ -5,7 +5,7 @@ pipeline {
         stage('build') {
            agent any
            steps {
-                sh 'echo whoami'
+                sh 'whoami'
                 sh 'sudo su'
                 sh 'apt update'
                 sh 'apt install software-properties-common'
