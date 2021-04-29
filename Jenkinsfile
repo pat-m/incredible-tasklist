@@ -5,7 +5,7 @@ pipeline {
         stage('build') {
            agent any
            steps {
-                sh 'su - admin'
+                sh 'su - jenkins'
            }
         }
         stage('Prepare') {
