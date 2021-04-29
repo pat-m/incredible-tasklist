@@ -5,7 +5,6 @@ pipeline {
         stage('build') {
            steps {
                 sh 'sudo su -s /bin/bash jenkins'
-                sh 'whoami'
                 sh 'sudo apt install software-properties-common'
                 sh 'sudo add-apt-repository ppa:ondrej/php'
                 sh 'sudo apt update'
@@ -13,12 +12,14 @@ pipeline {
                 sh 'sudo apt install libapache2-mod-php8.0 -y'
                 sh 'sudo apt install php8.0-mysql -y'
                 sh 'sudo apt install apache2 -y'
+                sh 'sudo ufw allow "Apache"'
+                sh 'sudo ufw status'
+                sh 'sudo systemctl status apache2'
                 sh 'sudo apt autoremove -y'
 //                 sh 'sudo apachectl -M'
 //                 sh 'sudo a2dismod php'
 //                 sh 'sudo a2dismod php7'
 //                 sh 'sudo a2enmod php8.0'
-                sh 'sudo systemctl start apache2'
                 sh 'ls'
            }
         }
