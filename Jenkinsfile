@@ -9,7 +9,7 @@ pipeline {
                 sh 'sudo add-apt-repository ppa:ondrej/php'
                 sh 'sudo apt update'
                 sh 'sudo apt install php8.0 -y'
-                sh 'sudo apt install php-cli unzip zip'
+                sh 'sudo apt install php-cli unzip zip -y'
                 sh 'php --version'
                 sh 'cd /usr/local/bin'
                 sh '''php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"'''
